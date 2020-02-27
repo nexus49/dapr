@@ -29,7 +29,7 @@ jobs:
       ARCHIVE_OUTDIR: dist/archives
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest]
         target_arch: [arm, amd64]
         include:
           - os: ubuntu-latest
@@ -106,7 +106,8 @@ jobs:
           path: ${{ env.ARTIFACT_DIR }}
       - name: docker login
         run: |
-          docker login -u ${{ secrets.DOCKER_REGISTRY_ID }} -p ${{ secrets.DOCKER_REGISTRY_PASS }} https://${{ env.DOCKER_REGISTRY }}
+          
+          docker login -u ${{ secrets.DOCKER_REGISTRY_ID }} -p '${{ secrets.DOCKER_REGISTRY_PASS }}' https://${{ env.DOCKER_REGISTRY }}
       - name: build and publish docker image
         run: |
           IMAGE_ARCHS=(amd64 arm)
@@ -130,32 +131,32 @@ jobs:
             echo "Build docker image and push image ..."
             make docker-push DAPR_REGISTRY=${{ env.DOCKER_REGISTRY }} DAPR_TAG=$DOCKER_VERSION GOARCH=${img_arch}
           done
-      - name: publish binaries to github
-        if: startswith(github.ref, 'refs/tags/v')
-        run: |
-          echo "installing github-release-cli..."
-          sudo npm install --slient --no-progress -g github-release-cli
+      # - name: publish binaries to github
+      #   if: startswith(github.ref, 'refs/tags/v')
+      #   run: |
+      #     echo "installing github-release-cli..."
+      #     sudo npm install --slient --no-progress -g github-release-cli
 
-          if [ "$LATEST_RELEASE" = "true" ]; then
-            export RELEASE_BODY=`cat ./docs/release_notes/v${REL_VERSION}.md`
-          else
-            export RELEASE_BODY="This is the release candidate ${REL_VERSION}"
-          fi
+      #     if [ "$LATEST_RELEASE" = "true" ]; then
+      #       export RELEASE_BODY=`cat ./docs/release_notes/v${REL_VERSION}.md`
+      #     else
+      #       export RELEASE_BODY="This is the release candidate ${REL_VERSION}"
+      #     fi
 
-          # Get the list of files
-          RELEASE_ARTIFACT=(${ARTIFACT_DIR}/*)
+      #     # Get the list of files
+      #     RELEASE_ARTIFACT=(${ARTIFACT_DIR}/*)
 
-          # Parse repository to get owner and repo names
-          OWNER_NAME="${GITHUB_REPOSITORY%%/*}"
-          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+      #     # Parse repository to get owner and repo names
+      #     OWNER_NAME="${GITHUB_REPOSITORY%%/*}"
+      #     REPO_NAME="${GITHUB_REPOSITORY#*/}"
 
-          export GITHUB_TOKEN=${{ secrets.DAPR_BOT_TOKEN }}
-          echo "Uploading Dapr Runtime Binaries to GitHub Release"
-          github-release upload \
-            --owner $OWNER_NAME --repo $REPO_NAME \
-            --tag "v${REL_VERSION}" \
-            --name "Dapr Runtime v${REL_VERSION}" \
-            --body "${RELEASE_BODY}" \
-            --prerelease true \
-            ${RELEASE_ARTIFACT[*]}
+      #     export GITHUB_TOKEN=${{ secrets.DAPR_BOT_TOKEN }}
+      #     echo "Uploading Dapr Runtime Binaries to GitHub Release"
+      #     github-release upload \
+      #       --owner $OWNER_NAME --repo $REPO_NAME \
+      #       --tag "v${REL_VERSION}" \
+      #       --name "Dapr Runtime v${REL_VERSION}" \
+      #       --body "${RELEASE_BODY}" \
+      #       --prerelease true \
+      #       ${RELEASE_ARTIFACT[*]}
 
