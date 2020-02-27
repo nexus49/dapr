@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/AdhityaRamadhanus/fasthttpcors v0.0.0-20170121111917-d4c07198763a
 	github.com/cenkalti/backoff v2.2.1+incompatible
-	github.com/dapr/components-contrib v0.0.0-20200219164914-5b75f4d0fbc6
+	github.com/dapr/components-contrib v0.0.0-20200226172056-467062ce38b5
 	github.com/dapr/go-sdk v0.0.0-20200121181907-48249cda2fad
 	github.com/eapache/go-resiliency v1.2.0 // indirect
 	github.com/emicklei/go-restful v2.10.0+incompatible // indirect
@@ -30,6 +30,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1
 	github.com/mitchellh/mapstructure v1.1.2
+	github.com/nexus49/dapr-components v0.0.0-20200227112915-d9809641dffe
 	github.com/phayes/freeport v0.0.0-20171002181615-b8543db493a5
 	github.com/prometheus/client_golang v1.2.1
 	github.com/prometheus/client_model v0.2.0
