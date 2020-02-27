@@ -29,8 +29,8 @@ jobs:
       ARCHIVE_OUTDIR: dist/archives
     strategy:
       matrix:
-        #os: [ubuntu-latest, windows-latest, macOS-latest]
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        # os: [ubuntu-latest]
         target_arch: [arm, amd64]
         include:
           - os: ubuntu-latest
@@ -57,12 +57,12 @@ jobs:
         uses: actions/checkout@v1
       - name: Parse release version and set REL_VERSION
         run: python ./.github/scripts/get_release_version.py
-      # - name: Run make lint
-      #   if: matrix.target_arch != 'arm'
-      #   run: make lint
-      # - name: Run make test
-      #   if: matrix.target_arch != 'arm'
-      #   run: make test
+      - name: Run make lint
+        if: matrix.target_arch != 'arm'
+        run: make lint
+      - name: Run make test
+        if: matrix.target_arch != 'arm'
+        run: make test
       - name: Run make release to build and archive binaries
         run: |
           mkdir -p ${{ env.ARCHIVE_OUTDIR }}
@@ -95,16 +95,16 @@ jobs:
         with:
           name: dapr_linux_arm
           path: ${{ env.ARTIFACT_DIR }}
-      # - name: download artifacts - dapr_windows_amd64
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: dapr_windows_amd64
-      #     path: ${{ env.ARTIFACT_DIR }}
-      # - name: download artifacts - dapr_darwin_amd64
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: dapr_darwin_amd64
-      #     path: ${{ env.ARTIFACT_DIR }}
+      - name: download artifacts - dapr_windows_amd64
+        uses: actions/download-artifact@master
+        with:
+          name: dapr_windows_amd64
+          path: ${{ env.ARTIFACT_DIR }}
+      - name: download artifacts - dapr_darwin_amd64
+        uses: actions/download-artifact@master
+        with:
+          name: dapr_darwin_amd64
+          path: ${{ env.ARTIFACT_DIR }}
       - name: docker login
         run: |
           
