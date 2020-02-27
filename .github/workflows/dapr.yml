@@ -106,7 +106,7 @@ jobs:
           path: ${{ env.ARTIFACT_DIR }}
       - name: docker login
         run: |
-          docker login -u ${{ secrets.DOCKER_REGISTRY_ID }} -p ${{ secrets.DOCKER_REGISTRY_PASS }}
+          docker login -u ${{ secrets.DOCKER_REGISTRY_ID }} -p ${{ secrets.DOCKER_REGISTRY_PASS }} https://${{ env.DOCKER_REGISTRY }}
       - name: build and publish docker image
         run: |
           IMAGE_ARCHS=(amd64 arm)
