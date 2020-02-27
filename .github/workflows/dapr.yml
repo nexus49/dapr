@@ -91,21 +91,21 @@ jobs:
         with:
           name: dapr_linux_amd64
           path: ${{ env.ARTIFACT_DIR }}
-      - name: download artifacts - dapr_linux_arm
-        uses: actions/download-artifact@master
-        with:
-          name: dapr_linux_arm
-          path: ${{ env.ARTIFACT_DIR }}
-      - name: download artifacts - dapr_windows_amd64
-        uses: actions/download-artifact@master
-        with:
-          name: dapr_windows_amd64
-          path: ${{ env.ARTIFACT_DIR }}
-      - name: download artifacts - dapr_darwin_amd64
-        uses: actions/download-artifact@master
-        with:
-          name: dapr_darwin_amd64
-          path: ${{ env.ARTIFACT_DIR }}
+      # - name: download artifacts - dapr_linux_arm
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: dapr_linux_arm
+      #     path: ${{ env.ARTIFACT_DIR }}
+      # - name: download artifacts - dapr_windows_amd64
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: dapr_windows_amd64
+      #     path: ${{ env.ARTIFACT_DIR }}
+      # - name: download artifacts - dapr_darwin_amd64
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: dapr_darwin_amd64
+      #     path: ${{ env.ARTIFACT_DIR }}
       - name: docker login
         run: |
           
