@@ -84,8 +84,8 @@ import (
 	"github.com/dapr/components-contrib/bindings/twilio"
 	bindings_loader "github.com/dapr/dapr/pkg/components/bindings"
 
-	"github.com/nexus49/dapr-components/bindings/httpauth"
 	"github.com/nexus49/dapr-components/bindings/httpbasic"
+	"github.com/nexus49/dapr-components/bindings/httpoauth"
 
 	// HTTP Middleware
 	middleware "github.com/dapr/components-contrib/middleware"
@@ -229,8 +229,8 @@ func main() {
 			bindings_loader.NewOutput("httpbasic", func() bindings.OutputBinding {
 				return httpbasic.NewHTTP()
 			}),
-			bindings_loader.NewOutput("httpauth", func() bindings.OutputBinding {
-				return httpauth.NewHTTP()
+			bindings_loader.NewOutput("httpoauth", func() bindings.OutputBinding {
+				return httpoauth.NewHTTP()
 			}),
 			bindings_loader.NewOutput("kafka", func() bindings.OutputBinding {
 				return kafka.NewKafka()
