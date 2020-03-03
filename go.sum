@@ -476,6 +476,8 @@ github.com/nexus49/dapr-components v0.0.0-20200303125207-7b255071234d h1:yKg6W9I
 github.com/nexus49/dapr-components v0.0.0-20200303125207-7b255071234d/go.mod h1:cpkxu+lNc72F1S+5fRhScl3o25/hmKXSuNvyMJdF3QA=
 github.com/nexus49/dapr-components v0.0.0-20200303130641-7fa2fe256dd3 h1:GAoeVCmt62k2PTIK5WOXGf8TzQQv5hxYN3/tIFT7Uxw=
 github.com/nexus49/dapr-components v0.0.0-20200303130641-7fa2fe256dd3/go.mod h1:cpkxu+lNc72F1S+5fRhScl3o25/hmKXSuNvyMJdF3QA=
+github.com/nexus49/dapr-components v0.0.0-20200303135009-f4c706dfaf68 h1:B2mqBpOApYOZmLjA9djWEXOAYGsEEga5fiW1kDZx4Yo=
+github.com/nexus49/dapr-components v0.0.0-20200303135009-f4c706dfaf68/go.mod h1:cpkxu+lNc72F1S+5fRhScl3o25/hmKXSuNvyMJdF3QA=
 github.com/onsi/ginkgo v0.0.0-20170829012221-11459a886d9c/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
