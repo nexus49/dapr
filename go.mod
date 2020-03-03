@@ -30,7 +30,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1
 	github.com/mitchellh/mapstructure v1.1.2
-	github.com/nexus49/dapr-components v0.0.0-20200302135915-15b07852b188
+	github.com/nexus49/dapr-components v0.0.0-20200303083754-bfa7a13a1091
 	github.com/phayes/freeport v0.0.0-20171002181615-b8543db493a5
 	github.com/prometheus/client_golang v1.2.1
 	github.com/prometheus/client_model v0.2.0
