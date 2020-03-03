@@ -255,7 +255,7 @@ func main() {
 				return httpbasic.NewHTTP()
 			}),
 			bindings_loader.NewOutput("httpoauth", func() bindings.OutputBinding {
-				return httpoauth.NewHTTP()
+				return httpoauth.NewHTTPOAuth(logContrib)
 			}),
 			bindings_loader.NewOutput("kafka", func() bindings.OutputBinding {
 				return kafka.NewKafka(logContrib)
